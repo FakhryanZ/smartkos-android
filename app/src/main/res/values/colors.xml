@@ -7,4 +7,5 @@
     <color name="darkGreen">#249A56</color>
     <color name="red">#E74C3C</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 </resources>
