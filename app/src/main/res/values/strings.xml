@@ -1,9 +1,3 @@
 <resources>
     <string name="app_name">SmartKos</string>
-
-    <string-array name="category_array">
-        <item>Kamar</item>
-        <item>Nama</item>
-        <item>Waktu Sewa</item>
-    </string-array>
 </resources>
