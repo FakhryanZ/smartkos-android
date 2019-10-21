@@ -54,7 +54,7 @@ public class PenghuniActivity extends AppCompatActivity {
                 "Nama",
                 "Waktu Sewa"
         };
-        ArrayAdapter<String> spinnerCategoryAdapter = new ArrayAdapter<String>(this,R.layout.spinner_category,categories);
+        ArrayAdapter<String> spinnerCategoryAdapter = new ArrayAdapter<String>(this,R.layout.spinner,categories);
         spinnerCategoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCategory.setAdapter(spinnerCategoryAdapter);
 
@@ -63,7 +63,7 @@ public class PenghuniActivity extends AppCompatActivity {
                 "A-Z",
                 "Z-A"
         };
-        ArrayAdapter<String> spinnerOrderAdapter = new ArrayAdapter<String>(this,R.layout.spinner_order,orders);
+        ArrayAdapter<String> spinnerOrderAdapter = new ArrayAdapter<String>(this,R.layout.spinner,orders);
         spinnerOrderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerOrder.setAdapter(spinnerOrderAdapter);
     }
