@@ -108,6 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="Nama Penghuni"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -148,6 +149,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="Nomor Kamar"
+        android:textColor="@color/black"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/imageView3" />
@@ -159,6 +161,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginBottom="16dp"
         android:text="Waktu Sewa"
+        android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline4" />
