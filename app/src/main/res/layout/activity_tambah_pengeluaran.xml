@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    tools:context=".activities.TambahPengeluaran">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/curved_rectangle_bottom"
+        android:elevation="4dp"
+        android:theme="@style/Widget.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:text="SMARTKOS"
+            android:textColor="@color/green"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/curved_rectangle_top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+
+    </View>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/roboto"
+        android:text="Jenis Pengeluaran"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
+
+    <Spinner
+        android:id="@+id/spinnerPengeluaran"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/curved_rectangle_all"
+        android:popupBackground="@drawable/curved_rectangle_all"
+        app:layout_constraintBottom_toBottomOf="@id/textView8"
+        app:layout_constraintEnd_toEndOf="@id/relativeLayout"
+        app:layout_constraintStart_toEndOf="@id/textView8"
+        app:layout_constraintTop_toTopOf="@id/textView8"
+        />
+
+    <ImageView
+        android:id="@+id/imageDownArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerPengeluaran"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerPengeluaran"
+        app:layout_constraintTop_toTopOf="@+id/spinnerPengeluaran"
+        app:srcCompat="@drawable/ic_keyboard_arrow_down_black_24dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/roboto"
+        android:text="Biaya"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toStartOf="@+id/spinnerPengeluaran"
+        app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/btn_darkgreen"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Simpan"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/editText7" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/btn_grey"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Kembali"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintTop_toTopOf="@+id/button3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
