@@ -27,4 +27,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,PenghuniActivity.class);
         startActivity(intent);
     }
+
+    public void buttonPengeluaranClicked(View view) {
+        Intent intent = new Intent(this,PengeluaranActivity.class);
+        startActivity(intent);
+    }
 }

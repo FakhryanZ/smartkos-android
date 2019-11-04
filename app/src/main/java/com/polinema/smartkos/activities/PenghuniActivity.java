@@ -3,6 +3,7 @@ package com.polinema.smartkos.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -77,4 +78,8 @@ public class PenghuniActivity extends AppCompatActivity {
         return true;
     }
 
+    public void buttonAddClicked(View view) {
+        Intent intent = new Intent(this,TambahPenghuni.class);
+        startActivity(intent);
+    }
 }

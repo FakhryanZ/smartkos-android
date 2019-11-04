@@ -152,7 +152,8 @@
         android:background="@mipmap/ic_launcher"
         app:layout_constraintEnd_toEndOf="@+id/viewBottom"
         app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="@id/viewBottom" />
+        app:layout_constraintTop_toTopOf="@id/viewBottom"
+        android:onClick="buttonPengeluaranClicked"/>
 
     <TextView
         android:layout_width="wrap_content"
