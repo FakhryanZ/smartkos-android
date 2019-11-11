@@ -1,47 +1,58 @@
 package com.polinema.smartkos.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.polinema.smartkos.R;
+import com.polinema.smartkos.adapters.PenghuniAdapter;
 
 public class PenghuniActivity extends AppCompatActivity {
     Button buttonMore;
+//    private PenghuniViewModel penghuniViewModel;
+    private RecyclerView rvPenghuni;
+    private PenghuniAdapter penghuniAdapter;
+
+    private TextView showNomorKamar, showNamaPenghuni;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_penghuni);
 
-        buttonMore = (Button)findViewById(R.id.button_more);
-        buttonMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PopupMenu popupMenu = new PopupMenu(PenghuniActivity.this,buttonMore);
-                popupMenu.getMenuInflater().inflate(R.menu.menu_more,popupMenu.getMenu());
+        rvPenghuni = findViewById(R.id.recyclerPenghuni);
+        final PenghuniAdapter adapter = new PenghuniAdapter(this);
+        rvPenghuni.setAdapter(adapter);
+        rvPenghuni.setLayoutManager(new LinearLayoutManager(this));
 
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        return false;
-                    }
-                });
-                popupMenu.show();
-
-            }
-        });
+//        buttonMore = (Button)findViewById(R.id.button_more);
+//        buttonMore.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                PopupMenu popupMenu = new PopupMenu(PenghuniActivity.this,buttonMore);
+//                popupMenu.getMenuInflater().inflate(R.menu.menu_more,popupMenu.getMenu());
+//
+//                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//                    @Override
+//                    public boolean onMenuItemClick(MenuItem menuItem) {
+//                        return false;
+//                    }
+//                });
+//                popupMenu.show();
+//
+//            }
+//        });
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -68,6 +79,23 @@ public class PenghuniActivity extends AppCompatActivity {
         spinnerOrderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerOrder.setAdapter(spinnerOrderAdapter);
     }
+
+//    private void initiateComponent(View mView) {
+//        showNamaPenghuni = mView.findViewById(R.id.showNamaPenghuni);
+//        rvPenghuni = findViewById(R.id.recyclerPenghuni);
+//        rvPenghuni.setLayoutManager(new LinearLayoutManager(this));
+//        penghuniAdapter = new PenghuniAdapter(this);
+//        rvPenghuni.setAdapter(penghuniAdapter);
+//
+//        penghuniViewModel = ViewModelProviders.of(this).get(PenghuniViewModel.class);
+//        penghuniViewModel.GetListPenghuni().observe(this, new Observer<List<Penghuni>>() {
+//            @Override
+//            public void onChanged(List<Penghuni> penghuni) {
+//                penghuniAdapter.SetListPenghuni(penghuni);
+//            }
+//        });
+//    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

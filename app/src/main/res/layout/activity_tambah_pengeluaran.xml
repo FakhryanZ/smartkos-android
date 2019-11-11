@@ -94,7 +94,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/edit_text_jumlah"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -106,20 +106,21 @@
         app:layout_constraintTop_toTopOf="@+id/textView9" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/simpanButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="54dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/btn_darkgreen"
         android:fontFamily="@font/roboto_medium"
+        android:onClick="simpanButtonClicked"
         android:text="Simpan"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/editText7" />
+        app:layout_constraintEnd_toStartOf="@+id/kembaliButton"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_jumlah" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/kembaliButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -127,9 +128,9 @@
         android:fontFamily="@font/roboto_medium"
         android:text="Kembali"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/button3"
+        app:layout_constraintBottom_toBottomOf="@+id/simpanButton"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
+        app:layout_constraintTop_toTopOf="@+id/simpanButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

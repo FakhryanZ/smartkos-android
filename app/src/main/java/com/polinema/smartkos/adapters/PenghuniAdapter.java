@@ -10,17 +10,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.polinema.smartkos.R;
+import com.polinema.smartkos.data.penghuni.Penghuni;
+
+import java.util.List;
 
 public class PenghuniAdapter extends RecyclerView.Adapter<PenghuniAdapter.MyViewHolder>{
 
     private final LayoutInflater mInflater;
-    private List<PenghuniEntity> mPenghuniEntities;
+    private List<Penghuni> mPenghuniEntities;
 
     public PenghuniAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
     }
 
-    public void SetListPenghuni(List<PenghuniEntity> penghuniEntities){
+    public void SetListPenghuni(List<Penghuni> penghuniEntities){
         mPenghuniEntities = penghuniEntities;
         notifyDataSetChanged();
     }
@@ -34,7 +37,12 @@ public class PenghuniAdapter extends RecyclerView.Adapter<PenghuniAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
+        if (mPenghuniEntities != null) {
+            Penghuni current = mPenghuniEntities.get(position);
+            holder.namaPenghuni.setText(current.getNama());
+        } else {
+            holder.namaPenghuni.setText("No Word");
+        }
     }
 
     @Override
@@ -43,12 +51,10 @@ public class PenghuniAdapter extends RecyclerView.Adapter<PenghuniAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView nomorKamar,namaPenghuni,waktuSewa
+        TextView namaPenghuni;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            nomorKamar = itemView.findViewById(R.id.nomorKamar);
-            namaPenghuni = itemView.findViewById(R.id.namaPenghuni);
-            waktuSewa = itemView.findViewById(R.id.waktuSewa);
+            namaPenghuni = itemView.findViewById(R.id.showNamaPenghuni);
         }
     }
 }

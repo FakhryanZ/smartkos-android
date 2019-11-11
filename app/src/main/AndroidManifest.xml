@@ -26,7 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.TambahPenghuni"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activities.PengeluaranActivity"/>
     </application>
 
 </manifest>

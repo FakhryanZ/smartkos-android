@@ -8,7 +8,7 @@
     android:background="@drawable/curved_rectangle_all">
 
     <TextView
-        android:id="@+id/waktuSewa"
+        android:id="@+id/showWaktuSewa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -18,7 +18,7 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline17"
-        app:layout_constraintTop_toBottomOf="@+id/namaPenghuni" />
+        app:layout_constraintTop_toBottomOf="@+id/showNamaPenghuni" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/ic_face_black_24dp" />
 
     <TextView
-        android:id="@+id/nomorKamar"
+        android:id="@+id/showNomorKamar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -41,12 +41,12 @@
         android:text="Nomor Kamar"
         android:textColor="@color/black"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/namaPenghuni"
+        app:layout_constraintBottom_toTopOf="@+id/showNamaPenghuni"
         app:layout_constraintStart_toStartOf="@+id/guideline17"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/namaPenghuni"
+        android:id="@+id/showNamaPenghuni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
