@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.Login"></activity>
+        <activity android:name=".activities.Login"/>
         <activity
             android:name=".activities.DetailPenghuni"
             android:screenOrientation="portrait" />

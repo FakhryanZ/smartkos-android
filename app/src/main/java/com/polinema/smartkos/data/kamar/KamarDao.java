@@ -1,5 +1,6 @@
 package com.polinema.smartkos.data.kamar;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -10,18 +11,16 @@ import java.util.List;
 
 @Dao
 public interface KamarDao {
-    @Query("SELECT * FROM kamar")
-    List<Kamar> getAll();
-
-    @Query("SELECT * FROM KAMAR LIMIT 1")
-    Kamar selectOne();
 
     @Insert
-    void insertAll(Kamar... kamars);
-
-    @Delete
-    void delete(Kamar... kamar);
+    void insert(Kamar kamar);
 
     @Update
-    void update(Kamar... kamar);
+    void update(Kamar kamar);
+
+    @Delete
+    void delete(Kamar kamar);
+
+    @Query("SELECT * FROM kamar_table WHERE status=0")
+    LiveData<List<Kamar>> getKamarKosong();
 }

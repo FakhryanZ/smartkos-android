@@ -1,15 +1,56 @@
 package com.polinema.smartkos.data;
 
+import android.content.Context;
+import android.os.AsyncTask;
+
+import androidx.annotation.NonNull;
 import androidx.room.Database;
+import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.polinema.smartkos.data.kamar.Kamar;
 import com.polinema.smartkos.data.kamar.KamarDao;
-import com.polinema.smartkos.data.penghuni.Penghuni;
-import com.polinema.smartkos.data.penghuni.PenghuniDao;
 
-@Database(entities = {Kamar.class, Penghuni.class}, version = 1, exportSchema = false)
+@Database(entities = {Kamar.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
+    private static AppDatabase instance;
+
     public abstract KamarDao kamarDao();
-    public abstract PenghuniDao penghuniDao();
+
+
+    public static synchronized AppDatabase getInstance(Context context){
+        if (instance == null) {
+            instance = Room.databaseBuilder(context.getApplicationContext(),
+                    AppDatabase.class, "SmartKos_database")
+                    .fallbackToDestructiveMigration()
+                    .addCallback(roomCallback)
+                    .build();
+        }
+        return instance;
+    }
+
+    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback(){
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            new PopulateDbAsyncTask(instance).execute();
+        }
+    };
+
+    private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void>{
+        private KamarDao kamarDao;
+
+        private PopulateDbAsyncTask(AppDatabase db){
+            kamarDao = db.kamarDao();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            kamarDao.insert(new Kamar("A1", "1"));
+            kamarDao.insert(new Kamar("A2", "1"));
+            kamarDao.insert(new Kamar("A3", "1"));
+            return null;
+        }
+    }
 }

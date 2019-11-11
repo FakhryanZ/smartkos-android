@@ -33,4 +33,60 @@ public class Penghuni {
 
     @ColumnInfo(name = "idKamar")
     public int idKamar;
+
+    public int getIdPenghuni() {
+        return idPenghuni;
+    }
+
+    public void setIdPenghuni(int idPenghuni) {
+        this.idPenghuni = idPenghuni;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getNoHp() {
+        return noHp;
+    }
+
+    public void setNoHp(String noHp) {
+        this.noHp = noHp;
+    }
+
+    public String getNoKtp() {
+        return noKtp;
+    }
+
+    public void setNoKtp(String noKtp) {
+        this.noKtp = noKtp;
+    }
+
+    public Date getTglMasuk() {
+        return tglMasuk;
+    }
+
+    public void setTglMasuk(Date tglMasuk) {
+        this.tglMasuk = tglMasuk;
+    }
+
+    public Date getTglHabis() {
+        return tglHabis;
+    }
+
+    public void setTglHabis(Date tglHabis) {
+        this.tglHabis = tglHabis;
+    }
+
+    public int getIdKamar() {
+        return idKamar;
+    }
+
+    public void setIdKamar(int idKamar) {
+        this.idKamar = idKamar;
+    }
 }
