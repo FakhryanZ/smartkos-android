@@ -15,9 +15,10 @@ public class Pengeluaran  {
 
     private String tanggal;
 
-    public Pengeluaran(String jenisPengeluaran, int biaya) {
+    public Pengeluaran(String jenisPengeluaran, int biaya, String tanggal) {
         this.jenisPengeluaran = jenisPengeluaran;
         this.biaya = biaya;
+        this.tanggal = tanggal;
     }
 
     public int getIdPengeluaran() {

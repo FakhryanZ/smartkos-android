@@ -14,14 +14,14 @@ import com.polinema.smartkos.data.pengeluaran.Pengeluaran;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PengeluaranAdapter extends RecyclerView.Adapter<PengeluaranAdapter.PengeluaranHolder> {
+public class PengeluaranBulanIniAdapter extends RecyclerView.Adapter<PengeluaranBulanIniAdapter.PengeluaranHolder> {
     private List<Pengeluaran> pengeluarans = new ArrayList<>();
 
     @NonNull
     @Override
     public PengeluaranHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_pengeluaran_bulan_ini,parent,false);
+                .inflate(R.layout.item_pengeluaran_bulan_ini,parent,false);
         return new PengeluaranHolder(itemView);
     }
 

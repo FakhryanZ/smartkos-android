@@ -5,32 +5,34 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.polinema.smartkos.fragments.PengeluaranBulanIni;
-import com.polinema.smartkos.fragments.PengeluaranSemuaBulan;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TabAdapter extends FragmentPagerAdapter {
-    private int numOftabs;
+    private List<Fragment> lstFragment = new ArrayList<>();
+    private List<String> lstTitles = new ArrayList<>();
 
-    public TabAdapter(@NonNull FragmentManager fm, int numOfTabs) {
+    public TabAdapter(FragmentManager fm) {
         super(fm);
-        this.numOftabs = numOfTabs;
     }
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
-            case 0:
-                return new PengeluaranBulanIni();
-            case 1:
-                return new PengeluaranSemuaBulan();
-            default:
-                return null;
-        }
+        return lstFragment.get(position);
     }
 
     @Override
     public int getCount() {
-        return numOftabs;
+        return 2;
+    }
+
+    public CharSequence getPageTitle(int position) {
+       return lstTitles.get(position);
+    }
+
+    public void AddFragment (Fragment fragment,String title) {
+        lstFragment.add(fragment);
+        lstTitles.add(title);
     }
 }
