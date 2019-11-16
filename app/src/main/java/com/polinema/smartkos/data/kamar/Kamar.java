@@ -11,7 +11,6 @@ public class Kamar {
 
     public String noKamar;
 
-
     public String status;
 
     public Kamar(String noKamar, String status) {

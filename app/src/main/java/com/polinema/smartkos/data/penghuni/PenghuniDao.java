@@ -11,8 +11,8 @@ import java.util.List;
 
 @Dao
 public interface PenghuniDao {
-    @Query("SELECT * FROM penghuni")
-    LiveData<List<Penghuni>> findAll();
+    @Query("SELECT * FROM penghuni_table")
+    LiveData<List<Penghuni>> getAllPenghuni();
 
     @Insert
     void insert(Penghuni penghuni);
@@ -21,5 +21,5 @@ public interface PenghuniDao {
     void delete(Penghuni penghuni);
 
     @Update
-    void update(Penghuni... penghunis);
+    void update(Penghuni penghuni);
 }
