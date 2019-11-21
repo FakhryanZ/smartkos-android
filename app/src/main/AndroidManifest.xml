@@ -9,25 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.DetailPenghuni"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.TambahPengeluaran"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.PenghuniActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.PengeluaranActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.MainActivity"
+        <activity android:name=".activities.Login"/>
+        <activity
+            android:name=".activities.DetailPenghuni"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.TambahPengeluaran"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.PenghuniActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.MainActivity"
             android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".activities.TambahPenghuni"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".activities.PengeluaranActivity"/>
+        <activity
+            android:name=".activities.TambahPenghuni"
+            android:parentActivityName=".activities.PenghuniActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

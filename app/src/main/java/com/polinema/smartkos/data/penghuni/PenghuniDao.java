@@ -11,21 +11,15 @@ import java.util.List;
 
 @Dao
 public interface PenghuniDao {
-    @Query("SELECT * FROM penghuni")
-    List<Penghuni> getAll();
+    @Query("SELECT * FROM penghuni_table")
+    LiveData<List<Penghuni>> getAllPenghuni();
 
     @Insert
-    void insert(Penghuni... penghunis);
+    void insert(Penghuni penghuni);
 
     @Delete
-    void delete(Penghuni... penghunis);
+    void delete(Penghuni penghuni);
 
     @Update
-    void update(Penghuni... penghunis);
-
-    @Query("SELECT * from penghuni ORDER BY nama ASC")
-    LiveData<List<Penghuni>> getAlphabetizedWords();
-
-    @Query("DELETE FROM penghuni")
-    void deleteAll();
+    void update(Penghuni penghuni);
 }

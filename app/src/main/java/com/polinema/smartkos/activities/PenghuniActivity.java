@@ -1,42 +1,52 @@
 package com.polinema.smartkos.activities;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.polinema.smartkos.R;
 import com.polinema.smartkos.adapters.PenghuniAdapter;
+import com.polinema.smartkos.data.penghuni.Penghuni;
+import com.polinema.smartkos.viewmodel.PenghuniViewModel;
+
+import java.util.List;
 
 public class PenghuniActivity extends AppCompatActivity {
+    public static final int ADD_PENGHUNI_REQUEST = 1;
+    private PenghuniViewModel penghuniViewModel;
     Button buttonMore;
-//    private PenghuniViewModel penghuniViewModel;
-    private RecyclerView rvPenghuni;
-    private PenghuniAdapter penghuniAdapter;
-
-    private TextView showNomorKamar, showNamaPenghuni;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_penghuni);
 
-        rvPenghuni = findViewById(R.id.recyclerPenghuni);
-        final PenghuniAdapter adapter = new PenghuniAdapter(this);
-        rvPenghuni.setAdapter(adapter);
-        rvPenghuni.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
 
-//        buttonMore = (Button)findViewById(R.id.button_more);
+        final PenghuniAdapter adapter = new PenghuniAdapter();
+        recyclerView.setAdapter(adapter);
+
+//        buttonMore = findViewById(R.id.button_more);
 //        buttonMore.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -78,24 +88,26 @@ public class PenghuniActivity extends AppCompatActivity {
         ArrayAdapter<String> spinnerOrderAdapter = new ArrayAdapter<String>(this,R.layout.spinner,orders);
         spinnerOrderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerOrder.setAdapter(spinnerOrderAdapter);
+
+
+        penghuniViewModel = ViewModelProviders.of(this).get(PenghuniViewModel.class);
+        penghuniViewModel.getAllPenghuni().observe(this, new Observer<List<Penghuni>>() {
+            @Override
+            public void onChanged(@Nullable List<Penghuni> penghunis) {
+                //update RecyclerView
+                adapter.setPenghunis(penghunis);
+            }
+        });
+
+        FloatingActionButton buttonAddPenghuni = findViewById(R.id.addButton);
+        buttonAddPenghuni.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PenghuniActivity.this, TambahPenghuni.class);
+                startActivityForResult(intent, ADD_PENGHUNI_REQUEST);
+            }
+        });
     }
-
-//    private void initiateComponent(View mView) {
-//        showNamaPenghuni = mView.findViewById(R.id.showNamaPenghuni);
-//        rvPenghuni = findViewById(R.id.recyclerPenghuni);
-//        rvPenghuni.setLayoutManager(new LinearLayoutManager(this));
-//        penghuniAdapter = new PenghuniAdapter(this);
-//        rvPenghuni.setAdapter(penghuniAdapter);
-//
-//        penghuniViewModel = ViewModelProviders.of(this).get(PenghuniViewModel.class);
-//        penghuniViewModel.GetListPenghuni().observe(this, new Observer<List<Penghuni>>() {
-//            @Override
-//            public void onChanged(List<Penghuni> penghuni) {
-//                penghuniAdapter.SetListPenghuni(penghuni);
-//            }
-//        });
-//    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -106,8 +118,23 @@ public class PenghuniActivity extends AppCompatActivity {
         return true;
     }
 
-    public void buttonAddClicked(View view) {
-        Intent intent = new Intent(this,TambahPenghuni.class);
-        startActivity(intent);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == ADD_PENGHUNI_REQUEST && resultCode == RESULT_OK) {
+            String nama = data.getStringExtra(TambahPenghuni.EXTRA_NAMA);
+            String noHp = data.getStringExtra(TambahPenghuni.EXTRA_NOHP);
+            String noKtp = data.getStringExtra(TambahPenghuni.EXTRA_NOKTP);
+            String tglBayar = data.getStringExtra(TambahPenghuni.EXTRA_TGLBAYAR);
+            String noKamar = data.getStringExtra(TambahPenghuni.EXTRA_NOKAMAR);
+
+            Penghuni penghuni = new Penghuni(nama, noHp, noKtp, tglBayar, noKamar);
+            penghuniViewModel.insert(penghuni);
+
+            Toast.makeText(this, "Penghuni Tersimpan", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Penghuni tidak tersimpan", Toast.LENGTH_SHORT).show();
+        }
     }
 }

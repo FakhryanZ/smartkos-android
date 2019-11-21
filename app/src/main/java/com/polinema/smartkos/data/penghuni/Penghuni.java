@@ -5,44 +5,30 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "penghuni")
-public class Penghuni {
+import java.util.Date;
+import java.util.List;
 
+@Entity(tableName = "penghuni_table")
+public class Penghuni {
     @PrimaryKey(autoGenerate = true)
-    @NonNull
-    @ColumnInfo(name = "idPenghuni")
     public int idPenghuni;
 
-    @ColumnInfo(name = "nama")
     public String nama;
 
-    @ColumnInfo(name = "noHp")
     public String noHp;
 
-    @ColumnInfo(name = "noKtp")
     public String noKtp;
 
-//    @ColumnInfo(name = "tglMasuk")
-//    public Date tglMasuk;
-//
-//    @ColumnInfo(name = "tglHabis")
-//    public Date tglHabis;
+    public String tglMasuk;
 
-    @ColumnInfo(name = "idKamar")
-    public int idKamar;
+    public String  idKamar;
 
-//    public Penghuni(int idPenghuni, String nama, String noHp, String noKtp, Date tglMasuk, Date tglHabis, int idKamar) {
-//        this.idPenghuni = idPenghuni;
-//        this.nama = nama;
-//        this.noHp = noHp;
-//        this.noKtp = noKtp;
-//        this.tglMasuk = tglMasuk;
-//        this.tglHabis = tglHabis;
-//        this.idKamar = idKamar;
-//    }
-
-    public Penghuni(String nama) {
+    public Penghuni(String nama, String noHp, String noKtp, String tglMasuk, String idKamar) {
         this.nama = nama;
+        this.noHp = noHp;
+        this.noKtp = noKtp;
+        this.tglMasuk = tglMasuk;
+        this.idKamar = idKamar;
     }
 
     public int getIdPenghuni() {
@@ -77,27 +63,19 @@ public class Penghuni {
         this.noKtp = noKtp;
     }
 
-//    public Date getTglMasuk() {
-//        return tglMasuk;
-//    }
-//
-//    public void setTglMasuk(Date tglMasuk) {
-//        this.tglMasuk = tglMasuk;
-//    }
-//
-//    public Date getTglHabis() {
-//        return tglHabis;
-//    }
-//
-//    public void setTglHabis(Date tglHabis) {
-//        this.tglHabis = tglHabis;
-//    }
+    public String getTglMasuk() {
+        return tglMasuk;
+    }
 
-    public int getIdKamar() {
+    public void setTglMasuk(String tglMasuk) {
+        this.tglMasuk = tglMasuk;
+    }
+
+    public String getIdKamar() {
         return idKamar;
     }
 
-    public void setIdKamar(int idKamar) {
+    public void setIdKamar(String idKamar) {
         this.idKamar = idKamar;
     }
 }
