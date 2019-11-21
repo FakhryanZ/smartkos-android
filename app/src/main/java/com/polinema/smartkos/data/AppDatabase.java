@@ -52,9 +52,9 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-//            kamarDao.insert(new Kamar("A1", "1"));
-//            kamarDao.insert(new Kamar("A2", "1"));
-//            kamarDao.insert(new Kamar("A3", "1"));
+            kamarDao.insert(new Kamar("A1", "1"));
+            kamarDao.insert(new Kamar("A2", "1"));
+            kamarDao.insert(new Kamar("A3", "1"));
             return null;
         }
     }

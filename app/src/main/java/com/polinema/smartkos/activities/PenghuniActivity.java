@@ -32,7 +32,6 @@ import java.util.List;
 public class PenghuniActivity extends AppCompatActivity {
     public static final int ADD_PENGHUNI_REQUEST = 1;
     private PenghuniViewModel penghuniViewModel;
-    Button buttonMore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,24 +44,6 @@ public class PenghuniActivity extends AppCompatActivity {
 
         final PenghuniAdapter adapter = new PenghuniAdapter();
         recyclerView.setAdapter(adapter);
-
-//        buttonMore = findViewById(R.id.button_more);
-//        buttonMore.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                PopupMenu popupMenu = new PopupMenu(PenghuniActivity.this,buttonMore);
-//                popupMenu.getMenuInflater().inflate(R.menu.menu_more,popupMenu.getMenu());
-//
-//                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//                    @Override
-//                    public boolean onMenuItemClick(MenuItem menuItem) {
-//                        return false;
-//                    }
-//                });
-//                popupMenu.show();
-//
-//            }
-//        });
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -108,6 +89,8 @@ public class PenghuniActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
