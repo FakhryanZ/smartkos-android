@@ -20,6 +20,9 @@
             android:name=".activities.PenghuniActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activities.PengeluaranActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activities.MainActivity"
             android:screenOrientation="portrait">
 

@@ -11,9 +11,9 @@ public class Kamar {
 
     public String noKamar;
 
-    public String status;
+    public int status;
 
-    public Kamar(String noKamar, String status) {
+    public Kamar(String noKamar, int status) {
         this.noKamar = noKamar;
         this.status = status;
     }
@@ -34,11 +34,15 @@ public class Kamar {
         this.noKamar = noKamar;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String toString() {
+        return noKamar;
     }
 }

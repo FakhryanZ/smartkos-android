@@ -23,4 +23,8 @@ public interface PengeluaranDao {
 
     @Query("SELECT * FROM Pengeluaran ORDER BY idPengeluaran ASC")
     LiveData<List<Pengeluaran>> getAllPengeluaran();
+
+//    @Query("SELECT SUM(biaya) as valTotalMonth " +
+//            "FROM Pengeluaran WHERE strftime('%Y', tanggal)= strftime('%Y', date('now')) AND strftime('%m',tanggal) = strftime('%m',date('now'))")
+//    Pengeluaran getAllBiaya();
 }

@@ -1,21 +1,18 @@
 package com.polinema.smartkos.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.polinema.smartkos.R;
-import com.polinema.smartkos.data.kamar.Kamar;
 import com.polinema.smartkos.viewmodel.KamarViewModel;
 
-import java.util.List;
+import java.text.DateFormat;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     private KamarViewModel kamarViewModel;
@@ -29,7 +26,26 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         TextView toolbarTitle = (TextView) myToolbar.findViewById(R.id.toolbar_title);
         toolbarTitle.setLetterSpacing((float) 0.1);
+
+        Calendar calendar = Calendar.getInstance();
+        String currentDate = DateFormat.getDateInstance(DateFormat.MONTH_FIELD).format(calendar.getTime());
+
+        TextView textViewTanggal = findViewById(R.id.txtBulan);
+        textViewTanggal.setText(currentDate);
+
+//        String totalBiaya = smartkos.db.showTotalBiaya();
     }
+
+//    public int showTotalBiaya(){
+//        int total = 0;
+//        SQLiteDatabase db =
+//        Cursor c = db.rawQuery("SELECT SUM(biaya) as valTotalMonth " +
+//                "FROM Pengeluaran WHERE strftime('%Y', tanggal)= strftime('%Y', date('now')) AND strftime('%m',tanggal) = strftime('%m',date('now'))");
+//        if (c.moveToFirst()){
+//            total = c.getInt(0);
+//        }
+//        return total;
+//    }
 
     public void buttonPenghuniClicked(View view) {
         Intent intent = new Intent(this,PenghuniActivity.class);

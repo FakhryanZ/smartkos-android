@@ -65,6 +65,4 @@ public class PengeluaranSemuaBulan extends Fragment {
 
         return v;
     }
-
-
 }

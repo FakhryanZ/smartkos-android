@@ -30,6 +30,7 @@ public class PengeluaranBulanIniAdapter extends RecyclerView.Adapter<Pengeluaran
         Pengeluaran currentPengeluaran = pengeluarans.get(position);
         holder.tvJenis.setText(currentPengeluaran.getJenisPengeluaran());
         holder.tvJumlah.setText(String.valueOf(currentPengeluaran.getBiaya()));
+        holder.tvTanggal.setText(String.valueOf(currentPengeluaran.getTanggal()));
     }
 
     @Override
@@ -49,11 +50,13 @@ public class PengeluaranBulanIniAdapter extends RecyclerView.Adapter<Pengeluaran
     class PengeluaranHolder extends RecyclerView.ViewHolder {
         private TextView tvJenis;
         private TextView tvJumlah;
+        private TextView tvTanggal;
 
         public PengeluaranHolder(@NonNull View itemView) {
             super(itemView);
             tvJenis = itemView.findViewById(R.id.text_view_jenis);
             tvJumlah = itemView.findViewById(R.id.text_view_jumlah);
+            tvTanggal = itemView.findViewById(R.id.tanggal);
         }
     }
 }

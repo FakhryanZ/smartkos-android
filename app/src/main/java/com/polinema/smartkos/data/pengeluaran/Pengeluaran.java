@@ -1,5 +1,6 @@
 package com.polinema.smartkos.data.pengeluaran;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -9,10 +10,13 @@ public class Pengeluaran  {
     @PrimaryKey(autoGenerate = true)
     private int idPengeluaran;
 
+    @ColumnInfo(name = "jenis")
     private String jenisPengeluaran;
 
+    @ColumnInfo(name = "biaya")
     private int biaya;
 
+    @ColumnInfo(name = "tanggal")
     private String tanggal;
 
     public Pengeluaran(String jenisPengeluaran, int biaya, String tanggal) {
