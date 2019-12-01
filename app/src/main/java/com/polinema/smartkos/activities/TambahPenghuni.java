@@ -62,7 +62,7 @@ public class TambahPenghuni extends AppCompatActivity {
         spinnerKamarAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerKamar.setAdapter(spinnerKamarAdapter);
 
-        editNama = findViewById(R.id.edtNama);
+        editNama = findViewById(R.id.edtNamaPenghuni);
         editNoHp = findViewById(R.id.edtNoHp);
         editNoKtp = findViewById(R.id.edtNoKtp);
         editTglBayar = findViewById(R.id.edtTanggalBayar);
@@ -113,6 +113,7 @@ public class TambahPenghuni extends AppCompatActivity {
     private void savePenghuni(){
         String namaPenghuni = editNama.getText().toString();
         String noKamar = spinnerKamar.getSelectedItem().toString();
+//        int noKamarA = spinnerKamar.getId();
         String noHp = editNoHp.getText().toString();
         String noKtp = editNoKtp.getText().toString();
         String tglBayar = editTglBayar.getText().toString();

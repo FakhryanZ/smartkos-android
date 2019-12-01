@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
 
     <EditText
-        android:id="@+id/edtNama"
+        android:id="@+id/edtNamaPenghuni"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
@@ -126,7 +126,7 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
-        app:layout_constraintStart_toStartOf="@+id/edtNoKamar"
+        app:layout_constraintStart_toStartOf="@+id/spinnerKamar"
         app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <TextView
@@ -209,7 +209,7 @@
         android:ems="10"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
-        app:layout_constraintStart_toStartOf="@+id/edtNama"
+        app:layout_constraintStart_toStartOf="@+id/edtNamaPenghuni"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
 

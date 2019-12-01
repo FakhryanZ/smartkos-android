@@ -1,26 +1,34 @@
 package com.polinema.smartkos.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.polinema.smartkos.R;
+import com.polinema.smartkos.activities.PerpanjangSewaPenghuni;
 import com.polinema.smartkos.data.penghuni.Penghuni;
+import com.polinema.smartkos.viewModel.PenghuniViewModel;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class PenghuniAdapter extends RecyclerView.Adapter<PenghuniAdapter.PenghuniHolder> {
     private List<Penghuni> penghunis = new ArrayList<>();
     private Context mCtx;
+    private PenghuniViewModel viewModel;
+
+    Button buttonMore;
 
     @NonNull
     @Override
@@ -28,56 +36,60 @@ public class PenghuniAdapter extends RecyclerView.Adapter<PenghuniAdapter.Penghu
         mCtx = parent.getContext();
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.penghuni_item, parent, false);
+        buttonMore = itemView.findViewById(R.id.button_more);
         return new PenghuniHolder(itemView);
     }
 
-
-
     @Override
-    public void onBindViewHolder(@NonNull final PenghuniHolder holder, final int position) {
-        Penghuni currentPenghuni = penghunis.get(position);
+    public void onBindViewHolder(@NonNull PenghuniHolder holder, int position) {
+        final Penghuni currentPenghuni = penghunis.get(position);
         holder.tvNoKamar.setText(currentPenghuni.getIdKamar());
         holder.tvNamaPenghuni.setText(currentPenghuni.getNama());
-        holder.tvLamaSewa.setText(currentPenghuni.getTglMasuk().toString());
+        String unconvert = currentPenghuni.getTglHabis().toString();
+        String converted = unconvert.replace("00:00:00 GMT+00:00","");
+        holder.tvLamaSewa.setText(converted);
 
-        holder.buttonViewOption.setOnClickListener(new View.OnClickListener() {
+        final PenghuniAdapter caller = this;
+
+        buttonMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PopupMenu popupMenu = new PopupMenu(mCtx, holder.buttonViewOption);
-                popupMenu.inflate(R.menu.menu_more);
+                PopupMenu popupMenu = new PopupMenu(mCtx,buttonMore);
+                popupMenu.getMenuInflater().inflate(R.menu.menu_more,popupMenu.getMenu());
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()) {
-                            case R.id.edit_profile:
+                            case R.id.perpanjang:
+
+                                Date tglHabis = currentPenghuni.getTglHabis();
+
+                                Toast.makeText(mCtx, tglHabis.toString(), Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(mCtx, PerpanjangSewaPenghuni.class);
+                                intent.putExtra("CurrentPenghuni",currentPenghuni);
+                                mCtx.startActivity(intent);
                                 break;
-                            case R.id.extend:
-                                break;
-                            case R.id.delete:
-//                                instance.penghuniDao().delete(penghunis.get(position));
-                                removeAt(holder.getAdapterPosition());
+                            case R.id.hapus:
+                                caller.removePenghuni(currentPenghuni);
                                 break;
                         }
+
                         return false;
                     }
                 });
-
                 popupMenu.show();
+
             }
         });
+
     }
 
-    public void removeAt(int position) {
-        penghunis.remove(position);
-        notifyItemRemoved(position);
-        notifyItemRangeChanged(position,penghunis.size());
+    private void removePenghuni(Penghuni currentPenghuni)
+    {
+        this.viewModel.delete(currentPenghuni);
     }
-
-    public Penghuni getPenghuniAt(int position) {
-        return penghunis.get(position);
-    }
-
 
     @Override
     public int getItemCount() {
@@ -89,20 +101,28 @@ public class PenghuniAdapter extends RecyclerView.Adapter<PenghuniAdapter.Penghu
         notifyDataSetChanged();
     }
 
+    public Penghuni getPenghuniAt(int position) {
+        return penghunis.get(position);
+    }
+
+    public void setViewModel(PenghuniViewModel viewModel) {
+        this.viewModel = viewModel;
+    }
+
+    public PenghuniViewModel getViewModel() {
+        return viewModel;
+    }
+
     class PenghuniHolder extends RecyclerView.ViewHolder {
         private TextView tvNoKamar;
         private TextView tvNamaPenghuni;
         private TextView tvLamaSewa;
-        private Button buttonViewOption;
 
         public PenghuniHolder(@NonNull View itemView) {
             super(itemView);
             tvNoKamar = itemView.findViewById(R.id.tvNoKamar);
             tvNamaPenghuni = itemView.findViewById(R.id.tvNamaPenghuni);
             tvLamaSewa = itemView.findViewById(R.id.tvLamaSewa);
-            buttonViewOption = itemView.findViewById(R.id.button_more);
         }
     }
-
-
 }

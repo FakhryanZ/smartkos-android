@@ -7,8 +7,9 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.polinema.smartkos.data.penghuni.Penghuni;
-import com.polinema.smartkos.data.repository.PenghuniRepository;
+import com.polinema.smartkos.data.penghuni.PenghuniRepository;
 
+import java.util.Date;
 import java.util.List;
 
 public class PenghuniViewModel extends AndroidViewModel {
@@ -36,5 +37,9 @@ public class PenghuniViewModel extends AndroidViewModel {
 
     public LiveData<List<Penghuni>> getAllPenghuni(){
         return getAllPenghuni;
+    }
+
+    public void updateTglHabis(Date tglHabis, int id){
+        repository.updateTglHabis(tglHabis,id);
     }
 }
