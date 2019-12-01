@@ -16,7 +16,7 @@ import com.polinema.smartkos.R;
 import com.polinema.smartkos.adapters.TabAdapter;
 import com.polinema.smartkos.fragments.PengeluaranBulanIni;
 import com.polinema.smartkos.fragments.PengeluaranSemuaBulan;
-import com.polinema.smartkos.viewModel.PengeluaranViewModel;
+import com.polinema.smartkos.viewmodel.PengeluaranViewModel;
 
 public class PengeluaranActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
 

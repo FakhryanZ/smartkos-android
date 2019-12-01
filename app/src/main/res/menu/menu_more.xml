@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/extend"
+        android:id="@+id/perpanjang"
         android:title="Perpanjang"/>
 
     <item
-        android:id="@+id/delete"
-        android:title="Hapus"/>
+        android:id="@+id/hapus"
+        android:title="Delete"/>
 
 </menu>

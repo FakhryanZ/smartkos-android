@@ -1,4 +1,4 @@
-package com.polinema.smartkos.data.pengeluaran;
+package com.polinema.smartkos.data.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
 import com.polinema.smartkos.data.AppDatabase;
+import com.polinema.smartkos.data.pengeluaran.Pengeluaran;
+import com.polinema.smartkos.data.pengeluaran.PengeluaranDao;
 
 import java.util.List;
 

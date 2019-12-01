@@ -23,7 +23,7 @@ import com.polinema.smartkos.R;
 import com.polinema.smartkos.activities.TambahPengeluaran;
 import com.polinema.smartkos.adapters.PengeluaranBulanIniAdapter;
 import com.polinema.smartkos.data.pengeluaran.Pengeluaran;
-import com.polinema.smartkos.viewModel.PengeluaranViewModel;
+import com.polinema.smartkos.viewmodel.PengeluaranViewModel;
 
 import java.text.DateFormat;
 import java.util.Calendar;

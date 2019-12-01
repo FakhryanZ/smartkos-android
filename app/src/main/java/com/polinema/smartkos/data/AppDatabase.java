@@ -17,7 +17,7 @@ import com.polinema.smartkos.data.pengeluaran.PengeluaranDao;
 import com.polinema.smartkos.data.penghuni.Penghuni;
 import com.polinema.smartkos.data.penghuni.PenghuniDao;
 
-@Database(entities = {Kamar.class, Penghuni.class, Pengeluaran.class}, version = 2, exportSchema = false)
+@Database(entities = {Kamar.class, Penghuni.class, Pengeluaran.class}, version = 1, exportSchema = false)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     public static AppDatabase instance;
@@ -56,9 +56,9 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            kamarDao.insert(new Kamar("A1", 1));
-            kamarDao.insert(new Kamar("A2", 1));
-            kamarDao.insert(new Kamar("A3", 1));
+//            kamarDao.insert(new Kamar("A1", "1"));
+//            kamarDao.insert(new Kamar("A2", "1"));
+//            kamarDao.insert(new Kamar("A3", "1"));
             return null;
         }
     }

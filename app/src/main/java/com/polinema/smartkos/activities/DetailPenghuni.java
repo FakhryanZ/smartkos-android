@@ -6,15 +6,14 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.polinema.smartkos.R;
 
-import java.util.Date;
-
-import static com.polinema.smartkos.activities.PenghuniActivity.EXTRA_NAMA;
-import static com.polinema.smartkos.activities.PenghuniActivity.EXTRA_NOHP;
-import static com.polinema.smartkos.activities.PenghuniActivity.EXTRA_NOKAMAR;
-import static com.polinema.smartkos.activities.PenghuniActivity.EXTRA_NOKTP;
+import static com.polinema.smartkos.activities.TambahPenghuni.EXTRA_NAMA;
+import static com.polinema.smartkos.activities.TambahPenghuni.EXTRA_NOHP;
+import static com.polinema.smartkos.activities.TambahPenghuni.EXTRA_NOKAMAR;
+import static com.polinema.smartkos.activities.TambahPenghuni.EXTRA_NOKTP;
 
 public class DetailPenghuni extends AppCompatActivity {
 
@@ -30,16 +29,17 @@ public class DetailPenghuni extends AppCompatActivity {
         toolbarTitle.setLetterSpacing((float) 0.1);
 
         Intent getDetail = getIntent();
-        String namaPenghuni = getDetail.getStringExtra(EXTRA_NAMA);
-        String noHp = getDetail.getStringExtra(EXTRA_NOHP);
-        String noKtp = getDetail.getStringExtra(EXTRA_NOKTP);
-        String noKamar = getDetail.getStringExtra(EXTRA_NOKAMAR);
+        String namaPenghuni = getDetail.getStringExtra("EXTRA_NAMA");
+        String noHp = getDetail.getStringExtra("EXTRA_NOHP");
+        String noKtp = getDetail.getStringExtra("EXTRA_NOKTP");
+        String noKamar = getDetail.getStringExtra("EXTRA_NOKAMAR");
 
 
         TextView textKamar = findViewById(R.id.txtKamar);
         TextView textPenghuni = findViewById(R.id.txtNama);
         TextView textNIK = findViewById(R.id.txtNIK);
         TextView textHp = findViewById(R.id.txtTelp);
+
 
         textKamar.setText(noKamar);
         textPenghuni.setText(namaPenghuni);

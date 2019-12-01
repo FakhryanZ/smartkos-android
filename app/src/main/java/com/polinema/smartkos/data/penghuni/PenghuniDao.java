@@ -22,4 +22,7 @@ public interface PenghuniDao {
 
     @Update
     void update(Penghuni penghuni);
+
+//    @Query("UPDATE penghuni_table SET tglHabis = :tgl_habis WHERE idPenghuni = :id")
+//    void updateTglHabis(Date tgl_habis, int id);
 }
