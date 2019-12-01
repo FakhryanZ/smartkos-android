@@ -1,12 +1,9 @@
 package com.polinema.smartkos.data.penghuni;
 
-import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
-import java.util.List;
 
 @Entity(tableName = "penghuni_table")
 public class Penghuni {
@@ -19,16 +16,20 @@ public class Penghuni {
 
     public String noKtp;
 
-    public String tglMasuk;
+    public Date tglMasuk;
+
+    public Date tglHabis;
+
 
     public String  idKamar;
 
-    public Penghuni(String nama, String noHp, String noKtp, String tglMasuk, String idKamar) {
+    public Penghuni(String nama, String noHp, String noKtp, Date tglMasuk, String idKamar, Date tglHabis) {
         this.nama = nama;
         this.noHp = noHp;
         this.noKtp = noKtp;
         this.tglMasuk = tglMasuk;
         this.idKamar = idKamar;
+        this.tglHabis = tglHabis;
     }
 
     public int getIdPenghuni() {
@@ -63,11 +64,11 @@ public class Penghuni {
         this.noKtp = noKtp;
     }
 
-    public String getTglMasuk() {
+    public Date getTglMasuk() {
         return tglMasuk;
     }
 
-    public void setTglMasuk(String tglMasuk) {
+    public void setTglMasuk(Date tglMasuk) {
         this.tglMasuk = tglMasuk;
     }
 
@@ -77,5 +78,13 @@ public class Penghuni {
 
     public void setIdKamar(String idKamar) {
         this.idKamar = idKamar;
+    }
+
+    public Date getTglHabis() {
+        return tglHabis;
+    }
+
+    public void setTglHabis(Date tglHabis) {
+        this.tglHabis = tglHabis;
     }
 }

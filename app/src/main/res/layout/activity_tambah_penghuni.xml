@@ -121,12 +121,11 @@
         android:id="@+id/edtNoHp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
-        app:layout_constraintStart_toStartOf="@+id/edtNoKamar"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerKamar"
+        app:layout_constraintStart_toStartOf="@+id/spinnerKamar"
         app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <TextView
@@ -145,11 +144,10 @@
         android:id="@+id/edtNoKtp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/tvNamaPenghuni"
-        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="@+id/edtNoHp"
         app:layout_constraintStart_toStartOf="@+id/edtNoHp"
         app:layout_constraintTop_toTopOf="@+id/tvNamaPenghuni" />
 
@@ -169,11 +167,10 @@
         android:id="@+id/edtTanggalBayar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="date"
         app:layout_constraintBottom_toBottomOf="@+id/tvLamaSewa"
-        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="@+id/edtNoKtp"
         app:layout_constraintStart_toStartOf="@+id/edtNoKtp"
         app:layout_constraintTop_toTopOf="@+id/tvLamaSewa" />
 
@@ -201,15 +198,13 @@
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintTop_toTopOf="@+id/btnSimpanPenghuni" />
 
-    <EditText
-        android:id="@+id/edtNoKamar"
+    <Spinner
+        android:id="@+id/spinnerKamar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
         android:ems="10"
-        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="@+id/edtNama"
         app:layout_constraintStart_toStartOf="@+id/edtNama"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 

@@ -23,4 +23,7 @@ public interface KamarDao {
 
     @Query("SELECT * FROM kamar_table WHERE status=0")
     LiveData<List<Kamar>> getKamarKosong();
+
+    @Query("SELECT * FROM kamar_table ORDER BY idKamar ASC")
+    LiveData<List<Kamar>> getAllKamar();
 }

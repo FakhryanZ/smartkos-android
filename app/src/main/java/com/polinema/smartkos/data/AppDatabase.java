@@ -12,13 +12,15 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.polinema.smartkos.data.kamar.Kamar;
 import com.polinema.smartkos.data.kamar.KamarDao;
+import com.polinema.smartkos.data.pengeluaran.Pengeluaran;
+import com.polinema.smartkos.data.pengeluaran.PengeluaranDao;
 import com.polinema.smartkos.data.penghuni.Penghuni;
 import com.polinema.smartkos.data.penghuni.PenghuniDao;
 
-@Database(entities = {Kamar.class, Penghuni.class}, version = 2, exportSchema = false)
+@Database(entities = {Kamar.class, Penghuni.class, Pengeluaran.class}, version = 2, exportSchema = false)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
-    private static AppDatabase instance;
+    public static AppDatabase instance;
 
     public abstract KamarDao kamarDao();
     public abstract PenghuniDao penghuniDao();
@@ -43,18 +45,20 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     };
 
+    public abstract PengeluaranDao pengeluaranDao();
+
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void>{
         private KamarDao kamarDao;
 
-        private PopulateDbAsyncTask(AppDatabase db){
+        PopulateDbAsyncTask(AppDatabase db){
             kamarDao = db.kamarDao();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            kamarDao.insert(new Kamar("A1", "1"));
-            kamarDao.insert(new Kamar("A2", "1"));
-            kamarDao.insert(new Kamar("A3", "1"));
+            kamarDao.insert(new Kamar("A1", 1));
+            kamarDao.insert(new Kamar("A2", 1));
+            kamarDao.insert(new Kamar("A3", 1));
             return null;
         }
     }

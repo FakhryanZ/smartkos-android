@@ -1,11 +1,5 @@
 package com.polinema.smartkos.activities;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,10 +10,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.polinema.smartkos.R;
-import com.polinema.smartkos.data.penghuni.Penghuni;
-import com.polinema.smartkos.viewmodel.PenghuniViewModel;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import com.polinema.smartkos.R;
+import com.polinema.smartkos.data.kamar.Kamar;
+
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class TambahPenghuni extends AppCompatActivity {
@@ -34,8 +32,10 @@ public class TambahPenghuni extends AppCompatActivity {
     public static final String EXTRA_TGLBAYAR =
             "com.polinema.smartkos.activities.EXTRA_TGLBAYAR";
 
-    private EditText editNama, editNoKamar, editNoHp, editNoKtp, editTglBayar;
+    private EditText editNama, editNoHp, editNoKtp, editTglBayar;
+    private Spinner spinnerKamar;
     private Button buttonSimpanPenghuni;
+    private Calendar myCalendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,21 +48,58 @@ public class TambahPenghuni extends AppCompatActivity {
         TextView toolbarTitle = (TextView) myToolbar.findViewById(R.id.toolbar_title);
         toolbarTitle.setLetterSpacing((float) 0.1);
 
-//        Spinner spinnerKamar = (Spinner) findViewById(R.id.spinnerKamar);
-//        String[] kamar = new String[]{
-//                "A1",
-//                "A2",
-//                "A3"
-//        };
-//        ArrayAdapter<String> spinnerKamarAdapter = new ArrayAdapter<String>(this,R.layout.spinner,kamar);
-//        spinnerKamarAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinnerKamar.setAdapter(spinnerKamarAdapter);
+        List<Kamar> kamars= new ArrayList<>();
+        Kamar kamar1 = new Kamar("A1",1);
+        kamars.add(kamar1);
+        Kamar kamar2 = new Kamar("A2",1);
+        kamars.add(kamar2);
+        Kamar kamar3 = new Kamar("A3",1);
+        kamars.add(kamar3);
+
+        spinnerKamar = (Spinner) findViewById(R.id.spinnerKamar);
+//        spinnerKamar.setOnItemClickListener((AdapterView.OnItemClickListener) this);
+        ArrayAdapter<Kamar> spinnerKamarAdapter = new ArrayAdapter<Kamar>(this,R.layout.spinner,kamars);
+        spinnerKamarAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerKamar.setAdapter(spinnerKamarAdapter);
 
         editNama = findViewById(R.id.edtNama);
-        editNoKamar = findViewById(R.id.edtNoKamar);
         editNoHp = findViewById(R.id.edtNoHp);
         editNoKtp = findViewById(R.id.edtNoKtp);
         editTglBayar = findViewById(R.id.edtTanggalBayar);
+
+//        final DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+//
+//            @Override
+//            public void onDateSet(DatePicker view, int year, int monthOfYear,
+//                                  int dayOfMonth) {
+//                myCalendar.set(Calendar.YEAR, year);
+//                myCalendar.set(Calendar.MONTH, monthOfYear);
+//                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+//
+//                String myFormat = "dd/MM/yyyy";
+//                SimpleDateFormat sdf = new SimpleDateFormat(myFormat);
+//                String a = myCalendar.getTime().toString();
+//                Date d = null;
+//                try {
+//                    d = sdf.parse(a);
+//                } catch (ParseException e) {
+//                    e.printStackTrace();
+//                }
+//                System.out.println(d);
+//                editTglBayar.setText(sdf.format(myCalendar.getTime()));
+//            }
+//
+//        };
+//        editTglBayar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                new DatePickerDialog(TambahPenghuni.this,datePickerListener,myCalendar
+//                .get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),
+//                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+//            }
+//        });
+
+
 
         buttonSimpanPenghuni = findViewById(R.id.btnSimpanPenghuni);
         buttonSimpanPenghuni.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +112,7 @@ public class TambahPenghuni extends AppCompatActivity {
 
     private void savePenghuni(){
         String namaPenghuni = editNama.getText().toString();
-        String noKamar = editNoKamar.getText().toString();
+        String noKamar = spinnerKamar.getSelectedItem().toString();
         String noHp = editNoHp.getText().toString();
         String noKtp = editNoKtp.getText().toString();
         String tglBayar = editTglBayar.getText().toString();
