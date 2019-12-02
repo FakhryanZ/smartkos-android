@@ -55,7 +55,7 @@ public class PenghuniAdapter extends RecyclerView.Adapter<PenghuniAdapter.Penghu
         holder.tvNoKamar.setText(currentPenghuni.getIdKamar());
         holder.tvNamaPenghuni.setText(currentPenghuni.getNama());
         String unconvert = currentPenghuni.getTglHabis().toString();
-        String converted = unconvert.replace("00:00:00 GMT+00:00","");
+        String converted = unconvert.replace("00:00:00 EDT","");
         holder.tvLamaSewa.setText(converted);
 
         final PenghuniAdapter caller = this;

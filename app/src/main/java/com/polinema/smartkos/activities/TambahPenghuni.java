@@ -23,9 +23,9 @@ import java.util.List;
 public class TambahPenghuni extends AppCompatActivity {
     public static final String EXTRA_NAMA =
             "com.polinema.smartkos.activities.EXTRA_NAMA";
-    public static final String EXTRA_NOKAMAR=
+    public static final String EXTRA_NOKAMAR =
             "com.polinema.smartkos.activities.EXTRA_NOKAMAR";
-    public static final String EXTRA_NOHP=
+    public static final String EXTRA_NOHP =
             "com.polinema.smartkos.activities.EXTRA_NOHP";
     public static final String EXTRA_NOKTP =
             "com.polinema.smartkos.activities.EXTRA_NOKTP";
@@ -48,17 +48,77 @@ public class TambahPenghuni extends AppCompatActivity {
         TextView toolbarTitle = (TextView) myToolbar.findViewById(R.id.toolbar_title);
         toolbarTitle.setLetterSpacing((float) 0.1);
 
-        List<Kamar> kamars= new ArrayList<>();
-        Kamar kamar1 = new Kamar("A1",1);
+        List<Kamar> kamars = new ArrayList<>();
+        Kamar kamar1 = new Kamar("KA 1-1",1);
         kamars.add(kamar1);
-        Kamar kamar2 = new Kamar("A2",1);
+        Kamar kamar2 = new Kamar("KA 1-2",1);
         kamars.add(kamar2);
-        Kamar kamar3 = new Kamar("A3",1);
+        Kamar kamar3 = new Kamar("KA 1-3",1);
         kamars.add(kamar3);
+        Kamar kamar4 = new Kamar("KA 1-4",1);
+        kamars.add(kamar4);
+        Kamar kamar5 = new Kamar("KA 1-5",1);
+        kamars.add(kamar5);
+        Kamar kamar6 = new Kamar("KA 1-6",1);
+        kamars.add(kamar6);
+        Kamar kamar7 = new Kamar("KA 1-7",1);
+        kamars.add(kamar7);
+        Kamar kamar8 = new Kamar("KA 1-8",1);
+        kamars.add(kamar8);
+        Kamar kamar9 = new Kamar("KA 1-9",1);
+        kamars.add(kamar9);
+        Kamar kamar10 = new Kamar("KA 1-10",1);
+        kamars.add(kamar10);
+        Kamar kamar11 = new Kamar("KA 2-1",1);
+        kamars.add(kamar11);
+        Kamar kamar12 = new Kamar("KA 2-2",1);
+        kamars.add(kamar12);
+        Kamar kamar13 = new Kamar("KA 2-3",1);
+        kamars.add(kamar13);
+        Kamar kamar14 = new Kamar("KA 2-4",1);
+        kamars.add(kamar14);
+        Kamar kamar15 = new Kamar("KA 2-5",1);
+        kamars.add(kamar15);
+        Kamar kamar16 = new Kamar("KA 2-6",1);
+        kamars.add(kamar16);
+        Kamar kamar17 = new Kamar("KA 2-7",1);
+        kamars.add(kamar17);
+        Kamar kamar18 = new Kamar("KA 2-8",1);
+        kamars.add(kamar18);
+        Kamar kamar19 = new Kamar("KA 2-9",1);
+        kamars.add(kamar19);
+        Kamar kamar20 = new Kamar("KA 2-10",1);
+        kamars.add(kamar20);
+        Kamar kamar21 = new Kamar("KA 3-1",1);
+        kamars.add(kamar21);
+        Kamar kamar22 = new Kamar("KA 3-2",1);
+        kamars.add(kamar22);
+        Kamar kamar23 = new Kamar("KA 3-3",1);
+        kamars.add(kamar23);
+        Kamar kamar24 = new Kamar("KA 3-4",1);
+        kamars.add(kamar24);
+        Kamar kamar25 = new Kamar("KA 3-5",1);
+        kamars.add(kamar25);
+        Kamar kamar26 = new Kamar("KA 3-6",1);
+        kamars.add(kamar26);
+        Kamar kamar27 = new Kamar("KA 3-7",1);
+        kamars.add(kamar27);
+        Kamar kamar28 = new Kamar("KA 3-8",1);
+        kamars.add(kamar28);
+        Kamar kamar29 = new Kamar("KA 3-9",1);
+        kamars.add(kamar29);
+        Kamar kamar30 = new Kamar("KA 3-10",1);
+        kamars.add(kamar30);
+
+
+
+
+
+
 
         spinnerKamar = (Spinner) findViewById(R.id.spinnerKamar);
 //        spinnerKamar.setOnItemClickListener((AdapterView.OnItemClickListener) this);
-        ArrayAdapter<Kamar> spinnerKamarAdapter = new ArrayAdapter<Kamar>(this,R.layout.spinner,kamars);
+        ArrayAdapter<Kamar> spinnerKamarAdapter = new ArrayAdapter<Kamar>(this, R.layout.spinner, kamars);
         spinnerKamarAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerKamar.setAdapter(spinnerKamarAdapter);
 
@@ -100,7 +160,6 @@ public class TambahPenghuni extends AppCompatActivity {
 //        });
 
 
-
         buttonSimpanPenghuni = findViewById(R.id.btnSimpanPenghuni);
         buttonSimpanPenghuni.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,7 +169,7 @@ public class TambahPenghuni extends AppCompatActivity {
         });
     }
 
-    private void savePenghuni(){
+    private void savePenghuni() {
         String namaPenghuni = editNama.getText().toString();
         String noKamar = spinnerKamar.getSelectedItem().toString();
 //        int noKamarA = spinnerKamar.getId();

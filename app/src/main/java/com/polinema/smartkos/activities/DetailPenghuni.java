@@ -6,14 +6,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.polinema.smartkos.R;
-
-import static com.polinema.smartkos.activities.TambahPenghuni.EXTRA_NAMA;
-import static com.polinema.smartkos.activities.TambahPenghuni.EXTRA_NOHP;
-import static com.polinema.smartkos.activities.TambahPenghuni.EXTRA_NOKAMAR;
-import static com.polinema.smartkos.activities.TambahPenghuni.EXTRA_NOKTP;
 
 public class DetailPenghuni extends AppCompatActivity {
 
